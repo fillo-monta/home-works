@@ -1,0 +1,25 @@
+<div class="container" style="text-align: center;">
+  <h1>My awesome App !</h1>
+</div>
+
+<div class="container mt-4">
+  {{#if listExists}} 
+    <ul>
+      {{#each suggestedChamps}}
+        <li class={{this.lane}}>{{this.name}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</div>
+
+<div class="container mt-4" style="text-align: center;">
+  <p><b>This is what I got: </b></p>
+  {{#each values}}
+    <nobr>{{this}}, </nobr>
+  {{/each}}
+</div>
+
+<div class="container mt-4" style="text-align: center;">
+  <p><b>Language: </b></p>
+  <p>{{lang}}</p>
+</div>
