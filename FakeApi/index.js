@@ -30,12 +30,7 @@ app.get("/", (req, res) =>{
     fetch("https://jsonplaceholder.typicode.com/posts")
     .then(res => res.json())
     .then(posts => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then(res => res.json())
-        .then(users => {
-            
-            res.render("index", {posts: posts, users: users})
-        })
+        res.render("index", {posts: posts})
     })
     .catch(error => console.error(error)) 
 })
