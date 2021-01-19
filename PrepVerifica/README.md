@@ -1,0 +1,1 @@
+E' lo stesso compito della cartella FakeApi ma eseguito senza motore di template
