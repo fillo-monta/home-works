@@ -2,34 +2,22 @@ const express = require("express")
 const fetch = require("node-fetch")
 const bodyParser = require("body-parser")
 const { getPosts } = require("./getPosts")
+const { Page } = require("./getPage")
 const { getSinglePost } = require("./getSinglePosts")
+const { call } = require("./utils")
 const app = new express()
 const PORT = 8080
+const url = "https://jsonplaceholder.typicode.com/"
 
 app.use(bodyParser.json())
 
 app.get("/", (req,res) => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-    .then(res => res.json())
-    .then(posts => {
-        res.send(getPosts(posts))
-    })
-    .catch(error => console.error(error)) 
+    call(url + "posts").then(posts => {res.send(Page(getPosts(posts)))})
 })
 
 app.get("/posts/:id", (req, res) => {
     const postId = req.params.id
-    fetch("https://jsonplaceholder.typicode.com/posts")
-        .then(res => res.json())
-        .then(posts => { 
-            //res.render("show_posts", {layout: "show_posts", post: posts[postId-1]})
-            fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
-            .then(res => res.json())
-            .then(comments => {
-                //res.render("show_posts", {layout: "show_posts", post: posts[postId-1], comments: comments})
-                res.send(getSinglePost(comments))
-            })
-        })
+    call(url + "posts/" + postId + "/comments").then(comments => {res.send(Page(getSinglePost(comments)))})
 })
 
 

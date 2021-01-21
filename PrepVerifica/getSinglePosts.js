@@ -1,8 +1,6 @@
-const {Page} = require("./getPage")
-
 const e = module.exports
-e.getSinglePost = post => {
-    const cards = post.reduce((acc,e) => {
+e.getSinglePost = post => 
+    post.reduce((acc,e) => {
         acc += `
         <div class="card mb-4">
             <div class="card-body">
@@ -14,5 +12,3 @@ e.getSinglePost = post => {
         return acc
     } 
     ,"")
-    return Page(cards)
-}

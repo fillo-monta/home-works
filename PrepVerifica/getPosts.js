@@ -1,9 +1,5 @@
 const {Page} = require("./getPage")
 
-
-const x = `<div class="row row-cols-1 row-cols-md-3">
-</div>`
-
 const e = module.exports
 e.getPosts = posts => {
     let cards = '<div class="row row-cols-1 row-cols-md-3">'
@@ -24,5 +20,5 @@ e.getPosts = posts => {
     ,"")
     cards += '</div>'
 
-    return Page(cards)
+    return cards
 }
