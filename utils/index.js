@@ -6,7 +6,7 @@ const port = 8080
 
 app.use(bodyParser.json())
 
-//const array = [2,34,45,46,56,56,56,45,3,2,3,453,65,766876,543231,2,4,576]
+//const array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 //const words = ["ciao", "mare", "imbarcazione", "navicella", "otto", "leo", "neo", "ottovolanate"]
 //const id = 1
 
@@ -23,7 +23,7 @@ app.post("/somma-pari", (req, res) => {
 */
 
 /*
-app.get("/lista-parole-a", (req, res) => {
+app.put("/lista-parole-a", (req, res) => {
     // const words = req.body
     const parolepari = words.filter(e => e.length > 4)
     const parole = parolepari.reduce((acc, e, i, arr) => i === arr.length -1 ? acc += e : acc += e + " ", "")
@@ -34,7 +34,7 @@ app.get("/lista-parole-a", (req, res) => {
 
 /*
 app.get("/comments", (req, res) => {
-    // const id = req.params.id
+    // const id = req.body.id
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
         .then(res => res.json())
         .then(comments => {
