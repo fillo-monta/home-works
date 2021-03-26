@@ -197,7 +197,7 @@ app.get("/fire", ({ query: { x, y, team, password } }, res) => {
         })
         
         let k=0 // variabile per conteggiare se è stata affondata una nave
-        if (x<W && y<H){
+        if (x<W && y<H && x>0 && y>0){
           const cell = field[y][x]
           cell.team = team
           if (cell.hit){  // la cella era già stata colpita
